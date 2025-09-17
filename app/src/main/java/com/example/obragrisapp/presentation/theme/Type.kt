@@ -1,4 +1,4 @@
-package com.example.obragrisapp.ui.theme
+package com.example.obragrisapp.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
