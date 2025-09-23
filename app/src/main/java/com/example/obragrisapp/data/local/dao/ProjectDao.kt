@@ -25,7 +25,7 @@ interface ProjectDao{
     @Query("SELECT * FROM project")
     fun loadAllProject(): Array<Project>
 
-    @Query("SELECT * FROM project WHERE project_id")
+    @Query("SELECT * FROM project WHERE project_id = :id")
     fun loadIdProject(id: Int): Project
 
     @Transaction
