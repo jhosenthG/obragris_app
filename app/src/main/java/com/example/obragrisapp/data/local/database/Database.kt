@@ -2,7 +2,6 @@ package com.example.obragrisapp.data.local.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 import com.example.obragrisapp.data.local.dao.ProjectDao
 import com.example.obragrisapp.data.local.dao.UserDao
 import com.example.obragrisapp.data.local.entities.Project
@@ -16,7 +15,6 @@ import com.example.obragrisapp.data.local.entities.User
     version = 1,
     exportSchema = true
 )
-@TypeConverters(TypeConverters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun projectdao(): ProjectDao
     abstract fun userdao(): UserDao
