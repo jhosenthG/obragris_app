@@ -2,6 +2,8 @@ package com.example.obragrisapp.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.obragrisapp.data.local.dao.ProjectDao
+import com.example.obragrisapp.data.local.dao.UserDao
 import com.example.obragrisapp.data.local.database.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -12,7 +14,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class DatabaseModule {
+object DatabaseModule {
 
     @Provides
     @Singleton
@@ -20,10 +22,16 @@ class DatabaseModule {
         @ApplicationContext context: Context
     ): AppDatabase {
         return Room.databaseBuilder(
-            context,
+            context.applicationContext,
             AppDatabase::class.java,
-            "AppDatabase"
+            "AppDatabase.db"
         ).build()
     }
+
+    @Provides
+    fun provideProjectDao(dataModule: AppDatabase): ProjectDao = dataModule.projectdao()
+
+    @Provides
+    fun provideUserDao(dataModule: AppDatabase): UserDao =dataModule.userdao()
 
 }
