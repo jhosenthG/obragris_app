@@ -32,6 +32,6 @@ object DatabaseModule {
     fun provideProjectDao(dataModule: AppDatabase): ProjectDao = dataModule.projectdao()
 
     @Provides
-    fun provideUserDao(dataModule: AppDatabase): UserDao =dataModule.userdao()
+    fun provideUserDao(dataModule: AppDatabase): UserDao = dataModule.userdao()
 
 }
